@@ -1,0 +1,15 @@
+version: '3.8'
+services:
+  server:
+    container_name: vitality_server
+    image: alexeipc/vitality_server
+    build: ./server
+    ports:
+    - published: 5000
+      target: 5000
+    environment:
+      DATABASE_URI: ${DATABASE_URI}
+  msdays_api:
+    container_name: vitality_api
+    image: alexeipc/vitality_api
+    build: ./msdays
