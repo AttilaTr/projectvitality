@@ -15,7 +15,7 @@
             The last five days and improvements
         </h2>
         <p>
-            {% for day in last_five_days %}
+            {% for day in days_imp %}
             On {{ day.day }} you will gain {{ day.improvement }}
             <br>
             {% endfor %}
