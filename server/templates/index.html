@@ -9,14 +9,14 @@
             Vitality Improvements
         </h1>
         <p> 
-            On {{ day }} you will gain {{ improvement }} 
+            On {{ day }} by {{ indoor }} you will gain {{ improvement }} vitality points
         </p>
         <h2>
             The last five days and improvements
         </h2>
         <p>
             {% for day in days_imp %}
-            On {{ day.day }} you will gain {{ day.improvement }}
+            On {{ day.day }} by {{ day.indoor }} you will gain {{ day.improvement }} vitality points
             <br>
             {% endfor %}
         </p>
