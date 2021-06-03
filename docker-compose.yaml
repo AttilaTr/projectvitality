@@ -10,6 +10,10 @@ services:
     environment:
       DATABASE_URI: ${DATABASE_URI}
   msdays_api:
-    container_name: vitality_api
-    image: alexeipc/vitality_api
+    container_name: msdays_api
+    image: alexeipc/msdays_api
     build: ./msdays
+  msindoor_api:
+    container_name: msindoor_api
+    image: alexeipc/msindoor_api
+    build: ./msindoor
