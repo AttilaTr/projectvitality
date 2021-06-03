@@ -16,5 +16,5 @@ wtforms==2.3.3
 pytest
 pytest-cov
 flask-testing
-selenium
 requests
+requests_mock
