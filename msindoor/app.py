@@ -3,10 +3,12 @@ import random
 
 app = Flask(__name__)
 
-@app.route('/get_indoor', methods=['GET'])
-def get_day():
-    return random.choice(['sleeping 8 hours', 'taking quick nap after lunch', 'eating healthy food', 'eating unhealthy food', 'playing games / watching TV during the night', 'having great sex', 'having dissapointing sex', 'working on computer not taking breaks', 'doing yoga', 'dancing', 'doing some aerobic', 'doing some exercise', 'not doing any pyhisical activity', 'cooking proper food'])
+choices=['sleeping 8 hours', 'taking quick nap after lunch', 'eating healthy food', 'eating unhealthy food', 'playing games / watching TV during the night', 'having great sex', 'having dissapointing sex', 'working on computer not taking breaks', 'doing yoga', 'dancing', 'doing some aerobic', 'doing some exercise', 'not doing any pyhisical activity', 'cooking proper food']
 
+@app.route('/get_indoor', methods=['GET'])
+def get_indoor():
+    return random.choice(choices)
+    
 @app.route('/get_improvement', methods=['POST'])
 def get_improvement():
     improvement = {
