@@ -3,6 +3,7 @@ pipeline {
     environment {
         DATABASE_URI = credentials("DATABASE_URI")
         SECRET_KEY = credentials("SECRET_KEY")
+        DOCKER_LOGIN = credential("DOCKER_LOGIN")
     }
     stages {
         stage('Test') {
@@ -12,7 +13,7 @@ pipeline {
         }
         stage('Build') {
             steps {
-                sh 'docker-compose up -d --build alexeipc/server-app:latest'
+                sh 'bash jenkins/dockerbuild.sh'
             }
         }
         stage('Push') {
