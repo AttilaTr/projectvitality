@@ -11,3 +11,5 @@ sudo curl -L "https://github.com/docker/compose/releases/download/${version}/doc
 sudo chmod +x /usr/local/bin/docker-compose
 
 docker-compose up -d --build
+
+docker exec vitality_server python create.py
