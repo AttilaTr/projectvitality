@@ -6,7 +6,7 @@ pipeline {
         DOCKER_LOGIN = credentials("DOCKER_LOGIN")
     }
     stages {
-        stage('Test') {
+        stage('Tests') {
             steps {
                 sh 'bash jenkins/test.sh'
             }
@@ -16,9 +16,11 @@ pipeline {
                 sh 'bash jenkins/dockerbuild.sh'
             }
         }
-        stage('Push') {
+        stage('Push Docker') {
             steps {
                sh 'docker push alexeipc/vitality_server:latest'
+               sh 'docker push alexeipc/msdays_api:latest'
+               sh 'docker push alexeipc/msindoor_api:latest'
             }
         }    
     }
