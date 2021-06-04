@@ -1,0 +1,33 @@
+pipeline {
+    agent any
+    environment {
+        DATABASE_URI = credentials("DATABASE_URI")
+        SECRET_KEY = credentials("SECRET_KEY")
+    }
+    stages {
+        stage('Test') {
+            steps {
+                sh 'bash jenkins/test.sh'
+            }
+        }
+        stage('Build') {
+            steps {
+                sh 'docker-compose up -d --build alexeipc/server-app:latest'
+            }
+        }
+        stage('Push') {
+            steps {
+                sh 'docker push alexeipc/server-app:latest'
+            }
+        }
+        stage('Run') {
+            steps {
+                sh 'docker exec vitality_server python create.py'
+            }
+        }
+    }
+    post {
+        junit '**/*.xml'
+        cobertura coberturaReportFile: 'coverage.xml', failNoReports: false
+    }
+}
