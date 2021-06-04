@@ -17,9 +17,10 @@ pipeline {
             }
         }
         stage('Push') {
-           steps {
+            steps {
                sh 'docker push alexeipc/projectvitality:latest'
             }
+        }    
     }
     post {
         always {
