@@ -8,6 +8,6 @@ source venv/bin/activate
 
 pip3 install -r server/requirements.txt
 
-python3 -m pytest server --cov=application --cov-report=xml  --junitxml=junit/test-results.xml
-python3 -m pytest msdays --cov=application --cov-report=xml  --junitxml=junit/test-results.xml
-python3 -m pytest msindoor --cov=application --cov-report=xml  --junitxml=junit/test-results.xml
+python3 -m pytest server --cov=server --cov-report=xml  --junitxml=junit/test-results.xml
+python3 -m pytest msdays --cov=msdays --cov-report=xml  --junitxml=junit/test-results.xml
+python3 -m pytest msindoor --cov=msindoor --cov-report=xml  --junitxml=junit/test-results.xml
