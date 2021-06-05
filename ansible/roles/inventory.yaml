@@ -9,7 +9,4 @@ all:
         swarm-worker2: 
 
   vars:
-    ansible_user: jenkins
-
-  vars:
     ansible_python_interpreter: "/usr/bin/python3"
