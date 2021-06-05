@@ -19,11 +19,10 @@ class Days(db.Model):
 
 @app.route('/')
 def home():
-    day = requests.get('http://msdays_api:5000/get_day')
-    improvementday = requests.post('http://msdays_api:5000/get_improvement', data=day.text)
-    indoor = requests.get('http://msindoor_api:5000/get_indoor')
-    improvementindoor = requests.post('http://msindoor_api:5000/get_improvement', data=indoor.text)
-    improvement = int(improvementday.text) + int(improvementindoor.text)
+    day = requests.get('http://msdays_api:5000/get_day').text
+    indoor = requests.get('http://msindoor_api:5000/get_indoor').text
+    payload={'day':day, 'indoor':indoor}
+    improvement = requests.post('http://msimprovement_api:5000/get_improvement', json=payload).json()
 
     if improvement >= 5:
         message = 'This activity is much recommended to you.'
@@ -36,15 +35,15 @@ def home():
 
     db.session.add(
         Days(
-            day=day.text,
-            indoor=indoor.text,
+            day=day,
+            indoor=indoor,
             improvement=improvement,
             message=message
             )
     )
     db.session.commit()
 
-    return render_template('index.html', day=day.text, indoor=indoor.text, improvement=improvement, message=message, days_imp=days_imp)
+    return render_template('index.html', day=day, indoor=indoor, improvement=improvement, message=message, days_imp=days_imp)
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000, debug=True)

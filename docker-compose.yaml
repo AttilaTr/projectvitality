@@ -19,3 +19,8 @@ services:
     container_name: msindoor_api
     image: alexeipc/msindoor_api
     build: ./msindoor
+  msindoor_api:
+    container_name: improvement_api
+    image: alexeipc/improvement_api
+    build: ./msindoor
+  
