@@ -18,14 +18,17 @@ pipeline {
         }
         stage('Push Docker') {
             steps {
-                sh 'docker push alexeipc/vitality_server:latest'
-                sh 'docker push alexeipc/msdays_api:latest'
-                sh 'docker push alexeipc/msindoor_api:latest'
+                sh 'docker-compose push'
             } 
         }
-        stage('Deployment - Ansible') {
+        stage('Ansible') {
             steps {
                 sh 'ansible-playbook -i ansible/roles/inventory.yaml ansible/roles/playbook.yaml'
+            }
+        }
+        stage('Deployment') {
+            steps {
+                sh 'bash jenkins/deploy.sh'
             }
         }
     }
