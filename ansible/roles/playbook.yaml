@@ -13,7 +13,7 @@
   roles:
   - swarm-worker
 
-- hosts: nginxserver
+- hosts: nginx
   become: true
   roles:
   - nginx
