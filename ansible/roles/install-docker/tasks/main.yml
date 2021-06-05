@@ -32,12 +32,12 @@
       - lsb-release
 
 - name: "Add User to Docker Group"
-  ansible.builtin.user:
+    ansible.builtin.user:
       name: jenkins
       groups: docker
       append: yes
 
 - name: "Install Docker with Pip"
-  pip:
-    name: docker
-    executable: pip3
+    pip:
+      name: docker
+      executable: pip3
