@@ -3,7 +3,7 @@
   roles:
   - install-docker
 
-- hosts: managers:
+- hosts: managers
   become: true
   roles:
   - swarm-manager
