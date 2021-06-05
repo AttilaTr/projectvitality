@@ -24,7 +24,7 @@
     apt:
       pkg:
       - docker-ce
-      - docker-ce-cli    pkg:
+      - docker-ce-cli
       - apt-transport-https
       - ca-certificates
       - curl
