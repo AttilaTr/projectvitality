@@ -6,7 +6,10 @@ all:
     workers:
       hosts:
         swarm-worker:
-        swarm-worker2: 
+        swarm-worker2:
+    nginx:
+      hosts:
+        nginx: 
 
   vars:
     ansible_python_interpreter: "/usr/bin/python3"
