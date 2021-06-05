@@ -25,7 +25,7 @@ pipeline {
         }
         stage('Deployment - Ansible') {
             steps {
-                sh 'ansible-playbook -i ansible/roles/inventory.yaml playbook.yaml'
+                sh 'ansible-playbook -i ansible/roles/inventory playbook.yaml'
             }
         }
     }
