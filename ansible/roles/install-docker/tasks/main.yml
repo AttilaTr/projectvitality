@@ -41,4 +41,3 @@
   pip:
     name: docker
     executable: pip3
-  
