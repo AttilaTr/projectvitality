@@ -1,0 +1,15 @@
+all:
+  children:
+    managers:
+      hosts:
+        warm-manager:
+    workers:
+      hosts:
+        swarm-worker:
+        swarm-worker2: 
+
+  vars:
+    ansible_user: jenkins
+
+  vars:
+    ansible_python_interpreter: "/usr/bin/python3"

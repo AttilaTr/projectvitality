@@ -21,8 +21,13 @@ pipeline {
                sh 'docker push alexeipc/vitality_server:latest'
                sh 'docker push alexeipc/msdays_api:latest'
                sh 'docker push alexeipc/msindoor_api:latest'
+            } 
+        }
+        stage('Deployment - Ansible') {
+            steps {
+                sh 'ansible-paybook -i inventory playbook.yaml'
             }
-        }    
+        }
     }
     post {
         always {
