@@ -2,7 +2,7 @@ all:
   children:
     managers:
       hosts:
-        warm-manager:
+        swarm-manager:
     workers:
       hosts:
         swarm-worker:
