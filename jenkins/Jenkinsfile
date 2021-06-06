@@ -21,7 +21,7 @@ pipeline {
                 sh 'docker-compose push'
             } 
         }
-        stage('Ansible') {
+        stage('Configuration with Ansible') {
             steps {
                 sh 'ansible-playbook -i ansible/roles/inventory.yaml ansible/roles/playbook.yaml'
             }

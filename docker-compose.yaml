@@ -9,8 +9,8 @@ services:
       target: 5000
     environment:
       DATABASE_URI: ${DATABASE_URI}
-#    deploy:
-#      replicas: 4
+    deploy:
+      replicas: 4
   msdays_api:
     container_name: msdays_api
     image: alexeipc/msdays_api
