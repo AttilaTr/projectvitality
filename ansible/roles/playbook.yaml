@@ -1,7 +1,5 @@
 - hosts: all
   become: true
-  vars:
-    host_key_checking: false
   roles:
   - install-docker
 
