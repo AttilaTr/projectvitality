@@ -1,9 +1,9 @@
 - hosts: all
   become: true
-  roles:
-  - install-docker
   vars:
     ansible_host_key_checking: false
+  roles:
+  - install-docker
 
 - hosts: managers
   become: true
