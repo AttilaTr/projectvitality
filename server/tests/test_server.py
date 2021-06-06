@@ -20,9 +20,9 @@ class TestHome(TestBase):
     def test_home(self):
         with requests_mock.Mocker() as mocker:
             mocker.get('http://msdays_api:5000/get_day', text='Thursday')
-            mocker.post('http://msdays_api:5000/get_improvement', text='0')
+            mocker.post('http://msimprovement_api:5000/get_improvement_day', text='0')
             mocker.get('http://msindoor_api:5000/get_indoor', text='sleeping 8 hours')
-            mocker.post('http://msindoor_api:5000/get_improvement', text='5')
+            mocker.post('http://msimprovement_api:5000/get_improvement_indoor', text='5')
             response = self.client.get(url_for('home'))
             self.assertEqual(response.status_code, 200)
             self.assertIn(b'On Thursday by sleeping 8 hours you would gain 5 vitality points', response.data)
