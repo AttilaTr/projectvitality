@@ -9,7 +9,7 @@ all:
         swarm-worker2:
     nginx:
       hosts:
-        10.154.0.16: 
+        nginx: 
 
   vars:
     ansible_python_interpreter: "/usr/bin/python3"
