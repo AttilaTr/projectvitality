@@ -10,7 +10,7 @@ services:
     environment:
       DATABASE_URI: ${DATABASE_URI}
     deploy:
-      replicas: 2
+     replicas: 2
   msdays_api:
     container_name: msdays_api
     image: alexeipc/msdays_api
